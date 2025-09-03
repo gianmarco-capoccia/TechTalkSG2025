@@ -44,7 +44,11 @@ export default function App() {
           >
             <Tab.Screen
               name="Home"
-              component={Main}
+              component={HomeScreen}
+            />
+            <Tab.Screen
+              name="Dipendenti"
+              component={ProfileScreen}
             />
           </Tab.Navigator>
         </NavigationContainer>
