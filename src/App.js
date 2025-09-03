@@ -3,9 +3,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { homePageStyle } from "./screens/styles/homePageStyle";
-import Main from "./screens/main";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import HomeScreen from "./screens/Home/HomeScreen";
+import ProfileScreen from "./screens/Profile/ProfileScreen";
 
 const Tab = createBottomTabNavigator();
 
