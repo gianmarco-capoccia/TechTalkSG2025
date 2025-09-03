@@ -1,27 +1,54 @@
 import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { homePageStyle } from "./screens/styles/homePageStyle";
+import Main from "./screens/main";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import HomeScreen from "./screens/Home/HomeScreen";
-import ProfileScreen from "./screens/Profile/ProfileScreen";
-
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
+  const getTabMenuIcon = (route, focused, color, size) => {
+    let iconName;
+
+    if (route.name === "Home") {
+      iconName = focused ? "home" : "home-outline";
+    }
+
+    return (
+      <Ionicons
+        name={iconName}
+        size={size}
+        color={color}
+      />
+    );
+  };
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen 
-          name="Home" 
-          component={HomeScreen} 
-          options={{ title: "Benvenuto" }}
-        />
-        <Stack.Screen 
-          name="Profile" 
-          component={ProfileScreen} 
-          options={{ title: "Profilo" }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <SafeAreaView style={homePageStyle.topSafeArea} />
+          <Tab.Navigator
+            screenOptions={({ route }) => ({
+              tabBarIcon: ({ focused, color, size }) =>
+                getTabMenuIcon(route, focused, color, size),
+              tabBarStyle: homePageStyle.tabBar,
+              tabBarLabelStyle: homePageStyle.tabLabel,
+              tabBarActiveTintColor: "#0077b3",
+              tabBarInactiveTintColor: "#999999",
+              headerShown: false
+            })}
+          >
+            <Tab.Screen
+              name="Home"
+              component={Main}
+            />
+          </Tab.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </>
   );
 }
