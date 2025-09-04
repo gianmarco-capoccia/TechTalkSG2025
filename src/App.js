@@ -11,6 +11,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import HomeScreen from "./screens/Home/HomeScreen";
 import EmployeesScreen from "./screens/Employees/EmployeesScreen";
 import EmployeeProjectsScreen from "./screens/EmployeeProjects/EmployeeProjectsScreen";
+import PhotoScreen from "./screens/Photo/PhotoScreen";
 import { PAGES, TITLES } from "./utils/utils.data";
 import DetailsProjectScreen from "./screens/DetailsProject/DetailsProjectScreen";
 
@@ -29,7 +30,17 @@ function MainTabs() {
       iconName = focused ? "people" : "people-outline";
     }
 
-    return <Ionicons name={iconName} size={size} color={color} />;
+    if (route.name === PAGES.PHOTO) {
+      iconName = focused ? "camera" : "camera-outline";
+    }
+
+    return (
+      <Ionicons
+        name={iconName}
+        size={size}
+        color={color}
+      />
+    );
   };
 
   return (
@@ -41,11 +52,24 @@ function MainTabs() {
         tabBarLabelStyle: homePageStyle.tabLabel,
         tabBarActiveTintColor: "#0077b3",
         tabBarInactiveTintColor: "#999999",
-        headerShown: false,
+        headerShown: false
       })}
     >
-      <Tab.Screen name={PAGES.HOME} component={HomeScreen} options={{ title: TITLES.HOME }} />
-      <Tab.Screen name={PAGES.DIPENDENTI} component={EmployeesScreen} options={{ title: TITLES.DIPENDENTI }} />
+      <Tab.Screen
+        name={PAGES.HOME}
+        component={HomeScreen}
+        options={{ title: TITLES.HOME }}
+      />
+      <Tab.Screen
+        name={PAGES.DIPENDENTI}
+        component={EmployeesScreen}
+        options={{ title: TITLES.DIPENDENTI }}
+      />
+      <Tab.Screen
+        name={PAGES.PHOTO}
+        component={PhotoScreen}
+        options={{ title: TITLES.PHOTO }}
+      />
     </Tab.Navigator>
   );
 }
@@ -56,7 +80,10 @@ export default function App() {
       <NavigationContainer>
         <SafeAreaView style={homePageStyle.topSafeArea} />
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="MainTabs" component={MainTabs} />
+          <Stack.Screen
+            name="MainTabs"
+            component={MainTabs}
+          />
           <Stack.Screen
             name={PAGES.PROGETTI}
             component={EmployeeProjectsScreen}
