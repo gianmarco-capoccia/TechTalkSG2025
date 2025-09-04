@@ -12,6 +12,7 @@ import HomeScreen from "./screens/Home/HomeScreen";
 import EmployeesScreen from "./screens/Employees/EmployeesScreen";
 import EmployeeProjectsScreen from "./screens/EmployeeProjects/EmployeeProjectsScreen";
 import { PAGES, TITLES } from "./utils/utils.data";
+import DetailsProjectScreen from "./screens/DetailsProject/DetailsProjectScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -60,6 +61,11 @@ export default function App() {
             name={PAGES.PROGETTI}
             component={EmployeeProjectsScreen}
             options={{ title: TITLES.PROGETTI }}
+          />
+          <Stack.Screen
+            name={PAGES.DETTAGLI_PROGETTO}
+            component={DetailsProjectScreen}
+            options={{ title: TITLES.DETTAGLI_PROGETTO }}
           />
         </Stack.Navigator>
       </NavigationContainer>

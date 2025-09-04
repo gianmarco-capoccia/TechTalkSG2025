@@ -2,12 +2,13 @@ import React from "react";
 import { FlatList, StyleSheet, Button } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { USERS } from "../../utils/mock/users.mock"
+import { PAGES } from "../../utils/utils.data";
 
 
-const Item = ({ id, name, navigation }) => (
+const Item = ({ employee, navigation }) => (
     <Button
-      title={name}
-      onPress={() => navigation.navigate("Progetti", { employeeName: name })}
+      title={employee.name}
+      onPress={() => navigation.navigate(PAGES.PROGETTI,{ employee })}
     />
   );
 
@@ -16,9 +17,9 @@ export default function EmployeesScreen({ navigation }) {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={USERS}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id?.toString()}
         renderItem={({ item }) => (
-          <Item name={item.name} navigation={navigation} />
+          <Item employee={item} navigation={navigation} />
         )}
         contentContainerStyle={{ paddingBottom: 20 }}
       />
