@@ -3,11 +3,12 @@ import { FlatList, StyleSheet, Button,Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { PAGES } from "../../utils/utils.data";
 
-const Item = ({name,navigation}) =>{
+const Item = ({project,employee, navigation}) =>{
+  const {name} = project;
   return (
     <Button
       title={name}
-      onPress={() => navigation.navigate(PAGES.DETTAGLI_PROGETTO,{name})}
+      onPress={() => navigation.navigate(PAGES.DETTAGLI_PROGETTO,{employee, project})}
     />
   )};
 
@@ -23,7 +24,7 @@ export default function ProjectsScreen({ route, navigation }) {
         data={projects}
         keyExtractor={(item) => item.id?.toString()}
         renderItem={({ item }) => (
-          <Item name={item} navigation={navigation} />
+          <Item project={item} employee={employee} navigation={navigation} />
         )}
         contentContainerStyle={{ paddingBottom: 20 }}
       /> 

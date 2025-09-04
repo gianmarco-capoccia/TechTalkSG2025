@@ -21,6 +21,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: "row",
     backgroundColor: "#F5F7FA",
     justifyContent: "center",
     alignItems: "center",
@@ -39,9 +40,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   logo: {
-    width: 200, 
-    height: 100, 
-    marginBottom: 0,
+    width: "70%", 
   },
   description: {
     fontSize: 16,
