@@ -1,36 +1,14 @@
 import React from "react";
-import { View, Text, Button, StyleSheet, FlatList } from "react-native";
-import {USERS} from "../../mock/users.mock" 
+import { StyleSheet,Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const Item = ({ id, name, navigation }) => (
-  // <View style={styles.item}>
-  //   <Text style={styles.name}>{name}</Text>
-  // </View>
 
-    <Button
-        title={name}
-        onPress={() => navigation.navigate("Profile", { employeeName: name })}
-      />
-);
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen() {
   return (
      <SafeAreaView style={styles.container}>
-      <FlatList
-        data={USERS}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <Item name={item.name} navigation={navigation} />
-        )}
-        contentContainerStyle={{ paddingBottom: 20 }}
-      />
+      <Text>ciao belliii</Text>
     </SafeAreaView>
-
-    // <View style={styles.container}>
-    //   <Text style={styles.text}>Dipendenti Reply : </Text>
-    
-    // </View>
   );
 }
 

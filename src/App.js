@@ -1,59 +1,68 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { homePageStyle } from "./screens/styles/homePageStyle";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+
+// Screens
 import HomeScreen from "./screens/Home/HomeScreen";
-import ProfileScreen from "./screens/Profile/ProfileScreen";
+import EmployeesScreen from "./screens/Employees/EmployeesScreen";
+import EmployeeProjectsScreen from "./screens/EmployeeProjects/EmployeeProjectsScreen";
+import { PAGES, TITLES } from "./utils/utils.data";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
-export default function App() {
+function MainTabs() {
   const getTabMenuIcon = (route, focused, color, size) => {
     let iconName;
 
-    if (route.name === "Home") {
+    if (route.name === PAGES.HOME) {
       iconName = focused ? "home" : "home-outline";
     }
 
-    return (
-      <Ionicons
-        name={iconName}
-        size={size}
-        color={color}
-      />
-    );
+    if (route.name === PAGES.DIPENDENTI) {
+      iconName = focused ? "people" : "people-outline";
+    }
+
+    return <Ionicons name={iconName} size={size} color={color} />;
   };
 
   return (
-    <>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <SafeAreaView style={homePageStyle.topSafeArea} />
-          <Tab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({ focused, color, size }) =>
-                getTabMenuIcon(route, focused, color, size),
-              tabBarStyle: homePageStyle.tabBar,
-              tabBarLabelStyle: homePageStyle.tabLabel,
-              tabBarActiveTintColor: "#0077b3",
-              tabBarInactiveTintColor: "#999999",
-              headerShown: false
-            })}
-          >
-            <Tab.Screen
-              name="Home"
-              component={HomeScreen}
-            />
-            <Tab.Screen
-              name="Dipendenti"
-              component={ProfileScreen}
-            />
-          </Tab.Navigator>
-        </NavigationContainer>
-      </SafeAreaProvider>
-    </>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) =>
+          getTabMenuIcon(route, focused, color, size),
+        tabBarStyle: homePageStyle.tabBar,
+        tabBarLabelStyle: homePageStyle.tabLabel,
+        tabBarActiveTintColor: "#0077b3",
+        tabBarInactiveTintColor: "#999999",
+        headerShown: false,
+      })}
+    >
+      <Tab.Screen name={PAGES.HOME} component={HomeScreen} options={{ title: TITLES.HOME }} />
+      <Tab.Screen name={PAGES.DIPENDENTI} component={EmployeesScreen} options={{ title: TITLES.DIPENDENTI }} />
+    </Tab.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <SafeAreaView style={homePageStyle.topSafeArea} />
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="MainTabs" component={MainTabs} />
+          <Stack.Screen
+            name={PAGES.PROGETTI}
+            component={EmployeeProjectsScreen}
+            options={{ title: TITLES.PROGETTI }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
