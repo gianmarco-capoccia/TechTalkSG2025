@@ -3,17 +3,18 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { homePageStyle } from "./screens/Home/Home.Style";
+import { homePageStyle } from "./src/screens/Home/Home.Style";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import "./global.css";
 
 // Screens
-import HomeScreen from "./screens/Home/HomeScreen";
-import EmployeesScreen from "./screens/Employees/EmployeesScreen";
-import EmployeeProjectsScreen from "./screens/EmployeeProjects/EmployeeProjectsScreen";
-import PhotoScreen from "./screens/Photo/PhotoScreen";
-import { PAGES, TITLES } from "./utils/utils.data";
-import DetailsProjectScreen from "./screens/DetailsProject/DetailsProjectScreen";
+import HomeScreen from "./src/screens/Home/HomeScreen";
+import EmployeesScreen from "./src/screens/Employees/EmployeesScreen";
+import EmployeeProjectsScreen from "./src/screens/EmployeeProjects/EmployeeProjectsScreen";
+import PhotoScreen from "./src/screens/Photo/PhotoScreen";
+import { PAGES, TITLES } from "./src/utils/utils.data";
+import DetailsProjectScreen from "./src/screens/DetailsProject/DetailsProjectScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();

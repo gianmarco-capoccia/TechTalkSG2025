@@ -12,7 +12,9 @@ export default function HomeScreen() {
           style={styles.logo}
           resizeMode="contain"
         />
-        <Text style={styles.description}>{INFO_OPEN_REPLY}</Text>
+        <Text className="text-xl font-bold text-blue-500">
+          {INFO_OPEN_REPLY}
+        </Text>
       </View>
     </SafeAreaView>
   );
@@ -25,27 +27,27 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5F7FA",
     justifyContent: "center",
     alignItems: "center",
-    padding: 20,
+    padding: 20
   },
   card: {
     backgroundColor: "#FFFFFF",
     borderRadius: 20,
     padding: 28,
     width: "90%",
-    alignItems: "center", 
+    alignItems: "center",
     shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 8,
-    elevation: 5,
+    elevation: 5
   },
   logo: {
-    width: "70%", 
+    width: "70%"
   },
   description: {
     fontSize: 16,
     lineHeight: 24,
     color: "#4B5563",
-    textAlign: "center",
-  },
+    textAlign: "center"
+  }
 });
