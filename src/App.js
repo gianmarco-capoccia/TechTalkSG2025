@@ -65,11 +65,11 @@ function MainTabs() {
         component={EmployeesScreen}
         options={{ title: TITLES.DIPENDENTI }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name={PAGES.PHOTO}
         component={PhotoScreen}
         options={{ title: TITLES.PHOTO }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 }

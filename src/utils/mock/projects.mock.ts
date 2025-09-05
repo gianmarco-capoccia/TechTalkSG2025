@@ -1,5 +1,5 @@
 export const PROJECTS = {
-    BCC : "progetto incredibile, wmp straordinaria",
-    AMEX: "Progetto con carte di credito e cose varie",
-    UNIPOL: "roba di assicurazioni vita, casa, auto, moto"
+    BCC : "La piattaforma digitale di BCC è dedicata al Wealth Management, supportando clienti privati e aziende nella gestione del patrimonio e degli investimenti. Consente di pianificare strategie finanziarie personalizzate, monitorare portafogli, accedere a prodotti d’investimento e ricevere report dettagliati. L’obiettivo è coniugare tecnologia avanzata e consulenza personalizzata, offrendo strumenti digitali moderni senza perdere l’approccio umano tipico delle Banche di Credito Cooperativo.",
+    AMEX: "American Express è una società globale di servizi finanziari nota per le sue carte di credito premium e soluzioni di pagamento sicure. La piattaforma digitale permette ai clienti di monitorare transazioni, gestire premi e cashback, controllare limiti di spesa e ricevere notifiche istantanee. L’obiettivo è offrire massima sicurezza, controllo finanziario e convenienza, sia per clienti privati sia per aziende.",
+    UNIPOL: "Unipol è una piattaforma assicurativa italiana che consente ai clienti di sottoscrivere polizze di diverso tipo, dai rami vita e salute alle assicurazioni auto e casa. Il portale digitale e l’app permettono di gestire facilmente le polizze, richiedere preventivi, attivare coperture e monitorare i propri sinistri in tempo reale. La piattaforma punta su digitalizzazione, semplicità e trasparenza per offrire un’esperienza cliente completa."
 }
